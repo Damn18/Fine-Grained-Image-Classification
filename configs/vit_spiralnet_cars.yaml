@@ -1,0 +1,40 @@
+# vit_spiralnet — Stanford Cars
+# Submitted model: achieved 71.8% on the competition test set.
+# LR and batch_size match vit_slow; SpinalNet head replaces linear classifier.
+
+# Dataset
+dataset: cars
+data_dir: ./data/cars
+img_size: 224
+num_workers: 4
+
+# Training
+num_epochs: 25
+batch_size: 12
+seed: 42
+
+# Optimizer
+optimizer: adamw
+lr: 0.001
+weight_decay: 0.01
+
+# Scheduler
+scheduler: cosine_warmup
+warmup_steps: 500
+
+# Loss
+label_smoothing: 0.1
+
+# SpinalNet head
+spinalnet_layer_width: 512
+spinalnet_dropout: 0.5
+
+# Early stopping
+early_stopping_patience: 5
+
+# Checkpoints & logging
+checkpoint_dir: ./checkpoints/vit_spiralnet_cars
+run_name: vit_spiralnet_cars
+wandb_project: fine-grained-clf
+use_wandb: true
+log_dir: ./logs

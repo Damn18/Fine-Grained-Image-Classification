@@ -1,0 +1,35 @@
+# vit_fast — Oxford Flowers 102
+# Higher batch size and LR vs vit_slow. Faster throughput, slightly noisier updates.
+
+# Dataset
+dataset: flowers102
+data_dir: ./data/flowers102
+img_size: 224
+num_workers: 4
+
+# Training
+num_epochs: 20
+batch_size: 32
+seed: 42
+
+# Optimizer
+optimizer: adamw
+lr: 0.003
+weight_decay: 0.01
+
+# Scheduler
+scheduler: cosine_warmup
+warmup_steps: 500
+
+# Loss
+label_smoothing: 0.1
+
+# Early stopping
+early_stopping_patience: 5
+
+# Checkpoints & logging
+checkpoint_dir: ./checkpoints/vit_fast_flowers
+run_name: vit_fast_flowers
+wandb_project: fine-grained-clf
+use_wandb: true
+log_dir: ./logs

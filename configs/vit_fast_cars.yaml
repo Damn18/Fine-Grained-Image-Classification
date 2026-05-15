@@ -1,0 +1,34 @@
+# vit_fast — Stanford Cars
+
+# Dataset
+dataset: cars
+data_dir: ./data/cars
+img_size: 224
+num_workers: 4
+
+# Training
+num_epochs: 30
+batch_size: 32
+seed: 42
+
+# Optimizer
+optimizer: adamw
+lr: 0.003
+weight_decay: 0.01
+
+# Scheduler
+scheduler: cosine_warmup
+warmup_steps: 500
+
+# Loss
+label_smoothing: 0.1
+
+# Early stopping
+early_stopping_patience: 5
+
+# Checkpoints & logging
+checkpoint_dir: ./checkpoints/vit_fast_cars
+run_name: vit_fast_cars
+wandb_project: fine-grained-clf
+use_wandb: true
+log_dir: ./logs

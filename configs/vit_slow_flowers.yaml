@@ -1,0 +1,36 @@
+# vit_slow — Oxford Flowers 102
+# Paper result: ViT Large Patch16_224 with background classes → 98.25%
+# Corresponds to the configuration that produced the Phase 1 breakthrough.
+
+# Dataset
+dataset: flowers102
+data_dir: ./data/flowers102
+img_size: 224
+num_workers: 4
+
+# Training
+num_epochs: 30
+batch_size: 12
+seed: 42
+
+# Optimizer
+optimizer: adamw
+lr: 0.001
+weight_decay: 0.01
+
+# Scheduler: warmup + cosine annealing (batch-level)
+scheduler: cosine_warmup
+warmup_steps: 500
+
+# Loss
+label_smoothing: 0.1
+
+# Early stopping
+early_stopping_patience: 5
+
+# Checkpoints & logging
+checkpoint_dir: ./checkpoints/vit_slow_flowers
+run_name: vit_slow_flowers
+wandb_project: fine-grained-clf
+use_wandb: true
+log_dir: ./logs

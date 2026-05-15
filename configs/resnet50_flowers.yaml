@@ -1,0 +1,38 @@
+# ResNet-50 — Oxford Flowers 102 (CNN baseline)
+# Paper result: 34.70% — significant overfitting, motivated switch to ViT.
+# The CNN backbone is frozen; only the custom FC head is trained.
+
+# Dataset
+dataset: flowers102
+data_dir: ./data/flowers102
+img_size: 224
+num_workers: 4
+
+# Training
+num_epochs: 25
+batch_size: 32
+seed: 42
+
+# Optimizer (SGD was the original; AdamW is also supported)
+optimizer: sgd
+lr: 0.01
+momentum: 0.9
+weight_decay: 1.0e-4
+
+# Scheduler
+scheduler: step_lr
+step_size: 10
+gamma: 0.1
+
+# Loss (no smoothing for CNN baselines)
+label_smoothing: 0.0
+
+# Early stopping
+early_stopping_patience: 5
+
+# Checkpoints & logging
+checkpoint_dir: ./checkpoints/resnet50_flowers
+run_name: resnet50_flowers
+wandb_project: fine-grained-clf
+use_wandb: true
+log_dir: ./logs

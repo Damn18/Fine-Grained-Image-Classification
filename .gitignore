@@ -1,0 +1,33 @@
+# Data and checkpoints (too large for git)
+data/flowers102/
+data/aircraft/
+data/cars/
+checkpoints/
+logs/
+wandb/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.eggs/
+*.egg
+
+# Environments
+.env
+.venv
+env/
+venv/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb

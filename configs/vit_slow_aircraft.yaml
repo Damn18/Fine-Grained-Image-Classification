@@ -1,0 +1,37 @@
+# vit_slow — FGVC Aircraft
+# Mirrors the best-performing configuration found across Phase 2 (27 experiments):
+# ReduceLROnPlateau scheduler, v2-style augmentation, LabelSmoothing p=0.1
+# The cosine_warmup scheduler here reflects the later phase 2 experiments.
+
+# Dataset
+dataset: aircraft
+data_dir: ./data/aircraft
+img_size: 224
+num_workers: 4
+
+# Training
+num_epochs: 25
+batch_size: 12
+seed: 42
+
+# Optimizer
+optimizer: adamw
+lr: 0.001
+weight_decay: 0.01
+
+# Scheduler
+scheduler: cosine_warmup
+warmup_steps: 500
+
+# Loss
+label_smoothing: 0.1
+
+# Early stopping
+early_stopping_patience: 5
+
+# Checkpoints & logging
+checkpoint_dir: ./checkpoints/vit_slow_aircraft
+run_name: vit_slow_aircraft
+wandb_project: fine-grained-clf
+use_wandb: true
+log_dir: ./logs
